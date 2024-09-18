@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+    <div id="container">
+            <h1 id="titulo">Pomodoro Timer</h1>
+
+            <p id="timer">00:00</p>
+
+            <form action="">
+                <label for="pomoInput">Pomodoro</label>
+                <input type="number" id="pomoInput">
+
+                <label for="shortInput">Pomodoro</label>
+                <input type="number" id="shortInput">
+
+                <label for="longInput">Pomodoro</label>
+                <input type="number" id="longInput">
+
+                <input type="submit" value="Salvar" onclick="salvar()">
+            </form>
+
+            <br>
+
+            <button id="botaoTimer" onclick="contador()">Iniciar</button>
+            <button id="button_skip" onclick="pular()">Pular</button>
+            <button id="button_restart" onclick="reiniciar()">Reiniciar</button>
+
+            <br><br><br>
+
+            <p id="voltas">#1</p>
+            <button id="mudarTela" onclick="mudarTela()">Mudar</button>
+    </div>
+
+    <script src="teste.js"></script>
+</body>
+
+</html>
