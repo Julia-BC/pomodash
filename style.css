@@ -1,0 +1,13 @@
+
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black(0, 0, 0, 0.1)
+}
+
+.config{
+    justify-content: space-around
+}

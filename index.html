@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodash</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-      <img src="Downloads\Faculdade\settings.png">  <button>Setting</button>
+    <div class="confg">
+      <img src="settings.png"> <button>Setting</button>
     </div>
-    <table>
-        <tr>
-            <th>Pomodoro</th>
-            <th>Intervalo</th>
-            <th>Long Break</th>
-        </tr>
-        <tr >
-            <th></th>
-            <th>00:00</th>
-            <th></th>
-        </tr>
-        <tr>
-            <th></th>
-            <th><button>Iniciar</button></th>
-            <th></th>
-        </tr>
-    </table>
+    <div class="container">   
+        <div class="tabs">
+            <div class="tab active" data-tab="pomodoro">Pomodoro</div>
+            <div class="tab" data-tab="intervalo">Intervalo</div>
+            <div class="tab" data-tab="longbreak">Long Break</div>
+        </div>
+        <div id="pomodoro" class="content active">
+            <h2>00:00:00</h2>
+            <button id="iniciar" action="start">Iniciar</button>
+        </div>
+        <div id="intervalo" class="content active">
+            <h2>00:00:00</h2>
+            <button id="iniciar" action="start">Iniciar</button>
+        </div>
+        <div id="longbreak" class="content active">
+            <h2>00:00:00</h2>
+            <button id="iniciar" action="start">Iniciar</button>
+
+        </div>
+    </div>
 </body>
 </html>
+
