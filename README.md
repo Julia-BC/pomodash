@@ -1,5 +1,5 @@
 <h1> Pomodash </h1>
-<p> Pomodash </p>
+<p> Pomodash é um pomodoro simples tendo uma função a mais de checklist. </p>
 <h2> Integrantes: </h2>
 <h3>Caio </h3>
 <h3>Cauâ </h3>
