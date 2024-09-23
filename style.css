@@ -3,9 +3,11 @@
 #48CFCB
 #7695FF
 */
+
+
 body {
     font-family: Arial, sans-serif;
-    background-image: url(imagens/2.jpg);
+    background-image: url(imagens/background.jpg);
     margin: 0; 
     display: flex;
     flex-direction: column; 
@@ -14,16 +16,28 @@ body {
 }
 .container-claro {
     background-color: rgba(255, 255, 255, 0.137); /* Fundo claro com opacidade */
-    padding: 50px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 0 10px #f0c9d6cc; /* Sombra sutil */
     margin-top: 50px;
+}
+
+.options{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background-color: #9127e2;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.buttonOp{
+    background-color: #9127e2;
+    
 }
 .titulo-container {
     max-width: 400px;
     margin: 0 auto;
     color: #f0c9d6cc; 
-    padding: 20px; /* Espaçamento interno reduzido */
+    padding: 100px 150px; /* Espaçamento interno reduzido */
     text-align: center; 
 }
 .container {
@@ -41,7 +55,6 @@ h3{
 }
 button {
     font-size: 16px;
-    margin-top: 10px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -54,13 +67,28 @@ button:hover {
     background-color: #bfc9c0be;
 }
 input{
-    margin-top: 10px;
     padding: 10px;
     font-size: 20px;
     border: none;
     border-radius: 5px;
     width:80%;
+    text-align: center;
 }
+
+.input-container{
+    display: flex;
+    margin-top: 15px;
+
+}
+
+#tarefa-input{
+    border-radius: 10px 0px 0px 10px;
+}
+
+#tarefa-button{
+    border-radius: 0px 10px 10px 0px;
+}
+
 .tarefas{
     margin-top: 20px;
     color: white;
@@ -70,13 +98,9 @@ input{
     padding: 10px;
     border-radius: 5px;
 }
-.input-container {
-    display: flex;
-    justify-content: center;
-}
+
 .primeiro{
     font-size: 30px;
-    margin-left: 10px;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -86,6 +110,42 @@ input{
     transition: background-color 0.3s;
 }
 .tempo {
-   font-size: 50px;
+   font-size: 100px;
    color: #f0c9d6cc; 
+}
+
+/* Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
 }
