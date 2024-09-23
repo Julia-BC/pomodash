@@ -5,30 +5,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodash</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="" href="script.js">
+    <style>
+        /* Estilos do botão de abrir o modal */
+        .btn-config {
+            background-color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group input[type="checkbox"],
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-switch input {
+            width: 40px;
+            height: 20px;
+            appearance: none;
+            background: #ccc;
+            outline: none;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-switch input:checked {
+            background: #4caf50;
+        }
+
+        .toggle-switch input::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .toggle-switch input:checked::before {
+            transform: translateX(20px);
+        }
+
+        button {
+            padding: 10px;
+            background-color: #657c95;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="confg">
-      <img src="settings.png"> <button>Setting</button>
+    <div class="container-config">
+        <button class="btn-setting" id="openModal">Configurações</button>
     </div>
-    <div class="container">   
+
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <form>
+                <div class="form-group"> <!--tempo pomodoro-->
+                    <label for="pomodoro">Tempo Pomodoro (minutos):</label>
+                    <input type="number" id="pomodoro" name="pomodoro" value="25" min="1">
+                </div>
+                <div class="form-group"><!--intervalo-->
+                    <label for="pequena-pausa">Pequena Pausa (minutos):</label>
+                    <input type="number" id="pequena-pausa" name="pequena-pausa" value="5" min="1">
+                </div>
+                <div class="form-group"><!--longbreak-->
+                    <label for="longa-pausa">Longa Pausa (minutos):</label>
+                    <input type="number" id="longa-pausa" name="longa-pausa" value="15" min="1">
+                </div>
+                <div class="form-group"><!--intervalo de pausa longa-->
+                    <label for="intervalo">Intervalo de pausa longo:</label>
+                    <input type="number" id="intervalo" name="intervalo" value="4" min="1" max="10">
+                </div>
+                <div class="form-group"><!--botão de salvar-->
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!-- Abas de navegação -->
         <div class="tabs">
             <div class="tab active" data-tab="pomodoro">Pomodoro</div>
-            <div class="tab" data-tab="intervalo">Intervalo</div>
-            <div class="tab" data-tab="longbreak">Long Break</div>
+            <div class="tab" data-tab="pausa">Intervalo</div>
+            <div class="tab" data-tab="longa-pausa">Longa Pausa</div>
         </div>
+    
+        <!-- Conteúdo das abas -->
         <div id="pomodoro" class="content active">
-            <h2>00:00:00</h2>
-            <button id="iniciar" action="start">Iniciar</button>
+            <div class="form-group">
+                <h2>
+                    <div class="tempo" id="timerPomodoro">25:00</div>
+                    <button class="primeiro" id="startPomodoro">Iniciar</button>
+                </h2>
+            </div>
         </div>
-        <div id="intervalo" class="content active">
-            <h2>00:00:00</h2>
-            <button id="iniciar" action="start">Iniciar</button>
+    
+        <div id="pausa" class="content">
+            <div class="form-group">
+                <h2>
+                    <div class="tempo" id="timerPausa">5:00</div>
+                    <button class="primeiro" id="startPausa">Iniciar</button>
+                </h2>
+            </div>
         </div>
-        <div id="longbreak" class="content active">
-            <h2>00:00:00</h2>
-            <button id="iniciar" action="start">Iniciar</button>
+    
+        <div id="longa-pausa" class="content">
+            <div class="form-group">
+                <h2>
+                    <div class="tempo" id="timerLongBreak">10:00</div>
+                    <button class="primeiro" id="startLongBreak">Iniciar</button>
+                </h2>
+            </div>
+        </div>
+    
 
+    <div class="container">
+        <h1>Tarefas</h1>
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="Adicione uma nova tarefa">
+            <button onclick="addTask()">Adicionar</button>
         </div>
+        <ul id="task-list"></ul>
+    </div>
+
+    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1234281943&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+        <a href="https://soundcloud.com/lofibloom" title="Lofi Bloom" target="_blank" style="color: #cccccc; text-decoration: none;">Lofi Bloom</a>
+        ·
+        <a href="https://soundcloud.com/lofibloom/sets/lofi-sleep-music-lofi-rain-beats" title="lofi sleep music, lofi rain beats 💤" target="_blank" style="color: #cccccc; text-decoration: none;">lofi sleep music, lofi rain beats 💤</a>
     </div>
 </body>
 </html>
