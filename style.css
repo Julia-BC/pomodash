@@ -6,7 +6,7 @@
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Protest Guerrilla", sans-serif;
     background-image: url(imagens/background.jpg);
     margin: 0; 
     display: flex;
@@ -17,7 +17,7 @@ body {
 .container-claro {
     background-color: rgba(255, 255, 255, 0.137); /* Fundo claro com opacidade */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 0 30px #f0c9d6cc; /* Sombra sutil */
+    box-shadow: 0px 10px 20px #640D5F; /* Sombra sutil */
     margin-top: 50px;
     width: 60%;
 }
@@ -26,28 +26,50 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 15px;
-    background-color: #9127e2;
+    background-color: #640D5F;
     border-radius: 10px 10px 0px 0px;
 }
 
 .buttonOp{
-    background-color: #9127e2;
+    background-color: #640D5F;
     
 }
 
 #btnPomo{
-    background-color: red;
+    background-color: #FFEB55;
+    color: black;
 }
 
 .titulo-container {
     width: 300px;
     padding: 100px 0px;
     margin: 0 auto;
-    color: #f0c9d6cc; 
+    color: #D91656; 
     text-align: center; 
 }
+
+#configButton{
+    float: right;
+    margin: 20px;
+    font-size: 25px;
+    color: #D91656; 
+}
+
+#musicButton{
+    float: left;
+    margin: 20px;
+    font-size: 25px;
+    color: #D91656; 
+}
+
+#configButton:hover,#musicButton:hover{
+    cursor: pointer;
+    color: #bfc9c0be;
+    transition: 0.2s all;
+}
+
 .container {
-    color: #f0c9d6cc;
+    color: #D91656;
     text-align: center;
     margin-top: 20px;
     width: 40%;
@@ -83,7 +105,7 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f0c9d6cc;
+    background-color: #D91656;
     color: rgb(255, 255, 255);
     cursor: pointer;
     transition: background-color 0.3s;
@@ -129,19 +151,19 @@ input{
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f0c9d6cc;
+    background-color: #D91656;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 .tempo {
    font-size: 100px;
-   color: #f0c9d6cc; 
+   color: #D91656; 
    text-align: center;
 }
 
 /* Modal */
-.modal {
+.modal,.modal-music {
     display: none; /* Escondido por padrão */
     position: fixed;
     z-index: 1; 
@@ -154,16 +176,18 @@ input{
     align-items: center; 
 }
 
-.modal-content {
-    background-color: #fefefe;
+.modal-content,.modal-content-music {
+    background-color: #D91656;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
     margin: auto;
+    text-align: center;
+    color: white;
 }
 
-.close {
+.close,.close-music {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -171,7 +195,9 @@ input{
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.close-music:hover,
+.close-music:focus{
     color: black;
     cursor: pointer;
 }
