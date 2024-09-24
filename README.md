@@ -9,4 +9,4 @@
 <h3>Rafaella Victoria</h3>
 <h3>Vitor Escorcio</h3>
 
-<h2>Link de Acesso: [text](https://caua1701.github.io/pomodash/)<h2>
+<h2>Link de Acesso: https://caua1701.github.io/pomodash/<h2>
