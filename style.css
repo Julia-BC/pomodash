@@ -149,3 +149,26 @@ input{
     color: black;
     cursor: pointer;
 }
+
+.tarefa {
+    display: flex;
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tarefa span {
+    flex-grow: 1; /* Faz com que o texto da tarefa ocupe o espaço disponível */
+}
+
+.tarefa i {
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin-left: 10px; /* Espaçamento entre os ícones */
+    font-size: 18px; /* Tamanho do ícone */
+    margin: 0px 5px;
+}
+
+.tarefa i:hover {
+    color: #5cb85c; /* Cor ao passar o mouse */
+}
