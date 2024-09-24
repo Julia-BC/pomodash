@@ -36,15 +36,17 @@
 
     <div class="container-claro">
         <div class="options">
-            <button class="buttonOp">Pomodoro</button>
-            <button class="buttonOp">Short Break</button>
-            <button class="buttonOp">Long Break</button>
+            <button class="buttonOp" id="btnPomo" onclick="mudarTela(1)"">Pomodoro</button>
+            <button class="buttonOp" id="btnShort" onclick="mudarTela(2)"">Short Break</button>
+            <button class="buttonOp" id="btnLong" onclick="mudarTela(3)"">Long Break</button>
         </div>
         <div class="titulo-container">
-            <h2>
                 <div class="tempo" id="timer">25:00</div>
-                <button class="primeiro" id="botaoTimer" onclick="contador()">Iniciar</button>
-            </h2>
+                <div class="control-options">
+                    <i class="fa-solid fa-rotate-right" onclick="mudarTela()"></i>
+                    <button class="primeiro" id="botaoTimer" onclick="contador()">Iniciar</button>
+                    <i class="fa-solid fa-forward"></i>
+                </div>
         </div>
     </div>
     </div>
@@ -58,7 +60,6 @@
         <div class="tarefas" id="lista"></div>
 
     </div>
-    <div class="container"></div>
 
     <script src="script.js"></script>
 </body>

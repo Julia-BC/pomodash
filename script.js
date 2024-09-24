@@ -30,12 +30,12 @@ let tempoSegundos = pomodoroTimer * 60
 
 let intervalo;
 
-//Serve para identificar em que fase estamos Ex: 1 - Pomodoro 2 - Intervalo Curto 3 - Intervalo Longo
-let telaAtual = 1;  
-
 //Puxando os elementos HTML
 const timer = document.getElementById("timer");
 const botaoTimer = document.getElementById("botaoTimer");
+const btnPomo = document.getElementById("btnPomo")
+const btnShort = document.getElementById("btnShort")
+const btnLong = document.getElementById("btnLong")
 // const voltas= document.getElementById("voltas");
 // const body = document.getElementById("body");
 
@@ -55,36 +55,35 @@ function formatarTempo(segundos) {
 
 }
 
-//Função para reconhecer que fase estamos, muda o titulo e o tempo na tela de acordo com a fase
-// function mudarTela(){
-//     if (telaAtual < 3){
-//         telaAtual++;
-//     } else {
-//         telaAtual = 1;
-//     }
 
-//     switch (telaAtual) {
-//         case 1:
-//             tempoSegundos = pomodoroTimer * 60
-//             titulo.innerHTML = "Pomodoro Timer";
-//             voltas.innerHTML = "#" + qtdPomodoro
-//             body.style.backgroundColor = "red";
-        
-//             break;
-//         case 2:
-//             tempoSegundos = shortTimer * 60
-//             titulo.innerHTML = "Short Timer";
-//             voltas.innerHTML = "#" + qtdShort
-//             body.style.backgroundColor = "blue";
-//             break;
-//         case 3:
-//             tempoSegundos = longTimer * 60
-//             titulo.innerHTML = "Long Timer";
-//             body.style.backgroundColor = "green";
-//             break;
-//     }
-//     timer.innerHTML = formatarTempo(tempoSegundos)
-// }
+
+//Função para reconhecer que fase estamos, muda o titulo e o tempo na tela de acordo com a fase
+function mudarTela(tela){
+
+    switch (tela) {
+        case 1:
+            tempoSegundos = pomodoroTimer * 60
+            // voltas.innerHTML = "#" + qtdPomodoro
+            btnPomo.style.backgroundColor = "red";
+            btnShort.style.backgroundColor = "#9127e2";
+            btnLong.style.backgroundColor = "#9127e2";
+            break;
+        case 2:
+            tempoSegundos = shortTimer * 60
+            // voltas.innerHTML = "#" + qtdShort
+            btnPomo.style.backgroundColor = "#9127e2";
+            btnShort.style.backgroundColor = "red";
+            btnLong.style.backgroundColor = "#9127e2";
+            break;
+        case 3:
+            tempoSegundos = longTimer * 60
+            btnPomo.style.backgroundColor = "#9127e2";
+            btnShort.style.backgroundColor = "#9127e2";
+            btnLong.style.backgroundColor = "red";
+            break;
+    }
+    timer.innerHTML = formatarTempo(tempoSegundos)
+}
 
 function contador(){
      if (botaoTimer.innerHTML === "Iniciar"){

@@ -17,8 +17,9 @@ body {
 .container-claro {
     background-color: rgba(255, 255, 255, 0.137); /* Fundo claro com opacidade */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px #f0c9d6cc; /* Sombra sutil */
+    box-shadow: 0 0 30px #f0c9d6cc; /* Sombra sutil */
     margin-top: 50px;
+    width: 60%;
 }
 
 .options{
@@ -33,18 +34,42 @@ body {
     background-color: #9127e2;
     
 }
+
+#btnPomo{
+    background-color: red;
+}
+
 .titulo-container {
-    max-width: 400px;
+    width: 300px;
+    padding: 100px 0px;
     margin: 0 auto;
     color: #f0c9d6cc; 
-    padding: 100px 150px; /* Espaçamento interno reduzido */
     text-align: center; 
 }
 .container {
     color: #f0c9d6cc;
     text-align: center;
     margin-top: 20px;
+    width: 40%;
 }
+
+.control-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.control-options i{
+    font-size: 30px;
+}
+
+.control-options i:hover{
+    cursor: pointer;
+    color: #bfc9c0be;
+    transition: 0.2s all;
+
+}
+
 h1 {
     font-size: 60px;
     text-align: center;
@@ -78,6 +103,7 @@ input{
 .input-container{
     display: flex;
     margin-top: 15px;
+    width: 100%;
 
 }
 
@@ -93,7 +119,6 @@ input{
     margin-top: 20px;
     color: white;
     text-align: left;
-    max-width: 400px;
     background: rgba(255, 255, 255, 0.2);
     padding: 10px;
     border-radius: 5px;
@@ -112,6 +137,7 @@ input{
 .tempo {
    font-size: 100px;
    color: #f0c9d6cc; 
+   text-align: center;
 }
 
 /* Modal */
@@ -171,4 +197,8 @@ input{
 
 .tarefa i:hover {
     color: #5cb85c; /* Cor ao passar o mouse */
+}
+
+#tarefa-input{
+    width: 100%;
 }
